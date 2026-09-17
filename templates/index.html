@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Iris SVM Classifier</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+    <div class="page">
+
+        <!-- Header -->
+
+        <header class="header">
+
+            <div class="brand">
+
+                <div class="logo">
+                    🌸
+                </div>
+
+                <div>
+                    <h1>Iris<span>AI</span></h1>
+                    <p>Machine Learning Classifier</p>
+                </div>
+
+            </div>
+
+            <div class="model-badge">
+                SVM MODEL
+            </div>
+
+        </header>
+
+
+        <!-- Main Content -->
+
+        <main class="main">
+
+            <!-- Introduction -->
+
+            <section class="intro">
+
+                <p class="eyebrow">
+                    PREDICTIVE ANALYTICS
+                </p>
+
+                <h2>
+                    Identify the Iris<br>
+                    <span>species with AI.</span>
+                </h2>
+
+                <p class="description">
+                    Enter the four flower measurements below.
+                    Our Support Vector Machine model will analyze
+                    the characteristics and predict the iris species.
+                </p>
+
+            </section>
+
+
+            <!-- Classifier Card -->
+
+            <section class="classifier-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h3>Flower Measurements</h3>
+
+                        <p>
+                            Enter the measurements in centimeters
+                        </p>
+                    </div>
+
+                    <div class="step">
+                        01 / 01
+                    </div>
+
+                </div>
+
+
+                <form method="POST">
+
+
+                    <div class="input-grid">
+
+
+                        <!-- Sepal Length -->
+
+                        <div class="input-group">
+
+                            <label for="sepal_length">
+                                Sepal Length
+                            </label>
+
+                            <div class="input-wrapper">
+
+                                <input
+                                    type="number"
+                                    step="any"
+                                    id="sepal_length"
+                                    name="sepal_length"
+                                    placeholder="5.1"
+                                    required
+                                >
+
+                                <span>cm</span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Sepal Width -->
+
+                        <div class="input-group">
+
+                            <label for="sepal_width">
+                                Sepal Width
+                            </label>
+
+                            <div class="input-wrapper">
+
+                                <input
+                                    type="number"
+                                    step="any"
+                                    id="sepal_width"
+                                    name="sepal_width"
+                                    placeholder="3.5"
+                                    required
+                                >
+
+                                <span>cm</span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Petal Length -->
+
+                        <div class="input-group">
+
+                            <label for="petal_length">
+                                Petal Length
+                            </label>
+
+                            <div class="input-wrapper">
+
+                                <input
+                                    type="number"
+                                    step="any"
+                                    id="petal_length"
+                                    name="petal_length"
+                                    placeholder="1.4"
+                                    required
+                                >
+
+                                <span>cm</span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Petal Width -->
+
+                        <div class="input-group">
+
+                            <label for="petal_width">
+                                Petal Width
+                            </label>
+
+                            <div class="input-wrapper">
+
+                                <input
+                                    type="number"
+                                    step="any"
+                                    id="petal_width"
+                                    name="petal_width"
+                                    placeholder="0.2"
+                                    required
+                                >
+
+                                <span>cm</span>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <!-- Predict Button -->
+
+                    <button type="submit" class="predict-button">
+
+                        <span>Predict Species</span>
+
+                        <span class="arrow">
+                            →
+                        </span>
+
+                    </button>
+
+
+                </form>
+
+            </section>
+
+
+            <!-- Prediction Result -->
+
+            {% if prediction %}
+
+            <section class="result-card">
+
+                <div class="result-icon">
+                    ✓
+                </div>
+
+                <div class="result-content">
+
+                    <p class="result-label">
+                        MODEL PREDICTION
+                    </p>
+
+                    <h2>
+                        {{ prediction }}
+                    </h2>
+
+                    <p>
+                        Based on the measurements provided,
+                        the SVM classifier predicts this iris species.
+                    </p>
+
+                </div>
+
+            </section>
+
+            {% endif %}
+
+
+            <!-- Model Information -->
+
+            <section class="info-grid">
+
+
+                <div class="info-card">
+
+                    <span class="info-number">
+                        01
+                    </span>
+
+                    <div>
+
+                        <h4>
+                            Support Vector Machine
+                        </h4>
+
+                        <p>
+                            Classification algorithm used
+                            to identify the iris species.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <span class="info-number">
+                        02
+                    </span>
+
+                    <div>
+
+                        <h4>
+                            Four Features
+                        </h4>
+
+                        <p>
+                            Sepal and petal dimensions
+                            are used as model inputs.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <span class="info-number">
+                        03
+                    </span>
+
+                    <div>
+
+                        <h4>
+                            ML Pipeline
+                        </h4>
+
+                        <p>
+                            Dataset → Training → Prediction
+                            through a Flask application.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+        </main>
+
+
+        <!-- Footer -->
+
+        <footer>
+
+            <p>
+                Built with Python · Flask · Scikit-learn
+            </p>
+
+            <p>
+                SVM Iris Classification Project
+            </p>
+
+        </footer>
+
+    </div>
+
+</body>
+
+</html>
