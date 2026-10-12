@@ -1,0 +1,3 @@
+# Ensure GitHub Linguist categorizes the repository as Python
+*.html linguist-detectable=false
+*.css linguist-detectable=false
